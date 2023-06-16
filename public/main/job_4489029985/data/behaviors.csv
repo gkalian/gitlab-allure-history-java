@@ -1,0 +1,4 @@
+"Epic","Feature","Story","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
+"","","This is a success Story.","0","0","1","0","0"
+"","","This is a second success Story.","0","0","1","0","0"
+"","","This is a fail Story.","1","0","0","0","0"
