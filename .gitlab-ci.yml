@@ -50,7 +50,7 @@ report:
   stage: report
   image: registry.gitlab.com/gkalian/gitlab-allure-history-java/image:main
   script:
-    - git clone --single-branch --branch gl-pages https://oauth2:${GL_TOKEN}:${GL_TOKEN_VALUE}@gitlab.com/gkalian/gitlab-allure-history-java.git
+    - git clone --single-branch --branch gl-pages https://${GL_TOKEN}:${GL_TOKEN_VALUE}@gitlab.com/gkalian/gitlab-allure-history-java.git
 
     - JOB_ID=$(cat jobid)
     - REPORT=job_${JOB_ID}
@@ -82,6 +82,6 @@ report:
     - git status -s
     - git add ./public/
     - git commit -m "pipeline_${CI_PIPELINE_ID}_job_${CI_JOB_ID}"
-    - git push -u https://oauth2:{GL_TOKEN}:${GL_TOKEN_VALUE}@gitlab.com/gkalian/gitlab-allure-history-java.git
+    - git push -u https://${GL_TOKEN}:${GL_TOKEN_VALUE}@gitlab.com/gkalian/gitlab-allure-history-java.git
   needs:
     - test
