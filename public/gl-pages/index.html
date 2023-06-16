@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index of public/gl-pages</title>
+    <style>
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+        }
+        th {
+            cursor: pointer;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th:hover {
+            background-color: #ddd;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+    
+    <script>
+        function sortTable(n) {
+          var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+          table = document.getElementsByTagName("table")[0];
+          switching = true;
+          dir = "asc";
+          while (switching) {
+            switching = false;
+            rows = table.getElementsByTagName("tr");
+            for (i = 1; i < (rows.length - 1); i++) {
+              shouldSwitch = false;
+              // Skip the row if it contains "../"
+              if (rows[i].getElementsByTagName("td")[0].innerHTML.includes("../")) {
+                continue;
+              }
+              x = rows[i].getElementsByTagName("td")[n];
+              y = rows[i + 1].getElementsByTagName("td")[n];
+              if (dir == "asc") {
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                  shouldSwitch = true;
+                  break;
+                }
+              } else if (dir == "desc") {
+                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                  shouldSwitch = true;
+                  break;
+                }
+              }
+            }
+            if (shouldSwitch) {
+              rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+              switching = true;
+              switchcount++;
+            } else {
+              if (switchcount == 0 && dir == "asc") {
+                dir = "desc";
+                switching = true;
+              }
+            }
+          }
+        }
+</script>
+
+</head>
+<body>
+    <h2>Index of public/gl-pages</h2>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th><a href="#" onclick="sortTable(0);">Name</a></th>
+                <th><a href="#" onclick="sortTable(1);">Last modified</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href='../'>../</a></td>
+                <td></td>
+            </tr>
+		<tr>			<td><a href="history">history</a></td>			<td>2023-06-16 12:36:14</td>		</tr>		<tr>			<td><a href="job_4488305843">job_4488305843</a></td>			<td>2023-06-16 12:36:14</td>		</tr>        </tbody>
+    </table>
+</body>
+</html>

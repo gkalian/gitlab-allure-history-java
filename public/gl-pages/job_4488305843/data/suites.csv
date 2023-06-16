@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"failed","Fri Jun 16 12:35:45 GMT 2023","Fri Jun 16 12:35:45 GMT 2023","18","Suite","Assert test","tests.ExampleTest","tests.ExampleTest","testFailure","testFailure","This is a fail story description."
+"passed","Fri Jun 16 12:35:45 GMT 2023","Fri Jun 16 12:35:45 GMT 2023","1","Suite","Assert test","tests.ExampleTest","tests.ExampleTest","testSuccess","testSuccess","This is a success story description."
+"passed","Fri Jun 16 12:35:45 GMT 2023","Fri Jun 16 12:35:45 GMT 2023","0","Suite","Assert test","tests.ExampleTest","tests.ExampleTest","testSuccess2","testSuccess2","This is a second success story description."
