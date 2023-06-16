@@ -1,5 +1,4 @@
 import java.time.LocalDateTime
-import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.ZonedDateTime
 
@@ -140,11 +139,13 @@ def getLastModifiedDate(file) {
     if (!last_commit_date || last_commit_date.isEmpty()) {
         date = LocalDateTime.now()
     } else {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E MMM dd HH:mm:ss yyyy X")
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEE MMM d HH:mm:ss yyyy X", Locale.ENGLISH)
         ZonedDateTime zonedDateTime = ZonedDateTime.parse(last_commit_date, formatter)
         date = zonedDateTime.toLocalDateTime()
     }
 
     DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
-    return outputFormatter.format(date)
+
+    // select anytime zone if needed
+    return outputFormatter.format(date.plusHours(3))
 }
