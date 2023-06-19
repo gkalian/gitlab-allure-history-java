@@ -47,8 +47,6 @@ test:
     allow_failure: true
 
 report:
-  tags:
-    - allure #project runner to avoid "user verification issue"
   stage: report
   image: registry.gitlab.com/gkalian/gitlab-allure-history-java/image:main
   script:
