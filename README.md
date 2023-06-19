@@ -1,4 +1,4 @@
-# Giltab Allure History Java
+# Gitlab Allure History Java
 
 Example project using GitLab CI/CD for Allure report with history on GitLab Pages based **on Java**. This project exists only because of [Aleksandr's Kotlyar work](https://github.com/aleksandr-kotlyar/gitlab-allure-history/tree/master).
 I needed to use Java instead of Python, so I made myself some changes:
@@ -6,6 +6,8 @@ I needed to use Java instead of Python, so I made myself some changes:
 - project is Maven now;
 - original generate_index file is on groovy;
 - additional html and css style in order to have "Last modified" column in results.
+
+[Demo](https://gkalian.gitlab.io/gitlab-allure-history-java/)
 
 ### How to use
 
@@ -15,16 +17,18 @@ I needed to use Java instead of Python, so I made myself some changes:
   - Use image for this stage based on this Dockerfile
   - Copy `generate_index.groovy` script into your main repo folder
 - Create branch `gl-pages`, it will be used for storing allure history
-    - You can clean the whole branch from any file
+    - You can clean the whole branch from any files
     - Clear current `gitlab-ci.yml`
     - Create in the branch stage to publish Pages on Gitlab
 
 Final results should be published on Gitlab Pages for each branch individually. 
 
+> Note: Due to GitLab's policies, the personal access token I am using does not trigger the job, causing an error "The pipeline failed due to the user not being verified". I suspect the issue lies with my profile. Possible solutions include using your own dedicated runners instead of shared ones or a self-hosted GitLab instance. Or something else, it's not clear for me anyway. 
+
 ### How it works
 
 1. Job `test` is running tests on your current branch and saves allure-results and JOB_ID to artifacts for the next job in pipeline.
-2. Job `allure`:
+2. Job `report`:
   - Clones `gl-pages` branch with it's all content into container (saving all previous reports).
   - Gets the 'history' of the last build from the same branch (if exists) into 'allure-results' of current build.
   - Creates 'executor.json' in 'allure-results' with build info and buildUrls in trends.
