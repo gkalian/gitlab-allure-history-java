@@ -40,3 +40,8 @@ Final results should be published on Gitlab Pages for each branch individually.
 3. And then push to branch 'gl-pages' triggers it's own job `pages` which publishes all content from `/public` directory on GitLab Pages. 
    
 All data can be accessed from the root link of GitLab Pages, where you can always see all the history of each branch and find the latest execution by the latest job_number inside the branch-dir of the branch you are interested in.
+
+### Links
+
+[Gitlab repository](https://gitlab.com/gkalian/gitlab-allure-history-java)
+[Github mirror](https://github.com/gkalian/gitlab-allure-history-java)
