@@ -1,5 +1,14 @@
 # Gitlab Allure History Java
 
+```
+Update 30/09/2025
+
+Current approach seems overly complex. There's a smoother solution that doesn't require an additional branch or image.
+
+I'd recommend checking out this article on Medium:
+https://medium.com/@vladimirbabin/gitlab-pages-allure-reports-with-history-a40db5e3bdb8
+```
+
 Example project using GitLab CI/CD for Allure report with history on GitLab Pages based **on Java**. This project exists only because of [Aleksandr's Kotlyar work](https://github.com/aleksandr-kotlyar/gitlab-allure-history/tree/master).
 I needed to use Java instead of Python, so I made myself some changes:
 
